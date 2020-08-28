@@ -147,6 +147,7 @@ public class Login extends javax.swing.JFrame {
 
         txt_Usuario.setBackground(new Color(0,0,0,0));
         txt_Usuario.setFont(new java.awt.Font("Segoe UI Historic", 0, 11)); // NOI18N
+        txt_Usuario.setForeground(new java.awt.Color(255, 255, 255));
         txt_Usuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         txt_Usuario.setCaretColor(new java.awt.Color(255, 255, 255));
         txt_Usuario.setDisabledTextColor(new java.awt.Color(255, 255, 255));
@@ -239,7 +240,7 @@ public class Login extends javax.swing.JFrame {
 
         Connection cn = DriverManager.getConnection(Principal.BD,Principal.Usuario,Principal.Contraseña);
 
-                PreparedStatement pst = cn.prepareStatement("select * from usuario  where nombre = ?");
+                PreparedStatement pst = cn.prepareStatement("select * from usuario  where nombre_usuario = ?");
 
                 pst.setString(1, txt_Usuario.getText().trim());
                 ResultSet rs = pst.executeQuery();
@@ -252,7 +253,7 @@ public class Login extends javax.swing.JFrame {
                 if(rs.next()){
 
                     if(rs2.next()){
-                        JOptionPane.showMessageDialog(null, "Bienvenido" + "    " + rs.getString("nombre"));
+                        JOptionPane.showMessageDialog(null, "Bienvenido" + "    " + rs.getString("nombre_usuario"));
 
                         Principal ventana = new  Principal();
                         ventana.setVisible(true);
@@ -267,6 +268,7 @@ public class Login extends javax.swing.JFrame {
                 }
 
             }catch(Exception e){
+                e.printStackTrace();
 
             }
         
