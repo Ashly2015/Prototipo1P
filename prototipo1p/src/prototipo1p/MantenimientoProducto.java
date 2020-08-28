@@ -110,7 +110,7 @@ public class MantenimientoProducto extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
-        setTitle("Mantenimiento Curso");
+        setTitle("Mantenimiento Producto");
         setVisible(true);
 
         btnBuscar.setText("Buscar");
